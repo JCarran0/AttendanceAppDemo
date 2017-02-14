@@ -21,6 +21,25 @@ export interface SupportMetaData {
   examSubject?: string;
 }
 
+export interface Schedule {
+  repeats: string;
+  repeatsEvery: number;
+  repeatsBy: string;
+  repeatsOn: {
+    monday: boolean;
+    tuesday: boolean;
+    wednesday: boolean;
+    thursday: boolean;
+    friday: boolean;
+    saturday: boolean;
+    sunday: boolean;
+  },
+  startsOn: string;
+  endsOn: string;
+  startTime: string;
+  endTime: string;
+}
+
 export interface Support {
   _id: string;
   schoolId: string;
@@ -29,24 +48,7 @@ export interface Support {
   description: string;
   createdBy: UserMini;
   location: string;
-  schedule: {
-    repeats: string;
-    repeatsEvery: number;
-    repeatsBy: string;
-    repeatsOn: {
-      monday: boolean;
-      tuesday: boolean;
-      wednesday: boolean;
-      thursday: boolean;
-      friday: boolean;
-      saturday: boolean;
-      sunday: boolean;
-    },
-    startsOn: string;
-    endsOn: string;
-    startTime: string;
-    endTime: string;
-  },
+  schedule: Schedule,
   activityLead: UserMini;
   primaryOutcomeMetrics: string[];
   metaData: SupportMetaData;
@@ -67,6 +69,13 @@ export class SupportsService {
 
   set active(support: Support) {
     this._activeSupport = support;
+  }
+
+  getHuman(machine) {
+    const enums = {
+      'REGENTS_PREP': 'Regents Prep'
+    };
+    return enums[machine];
   }
 
   // TODO: Mocked API Request here for now

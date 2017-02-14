@@ -31,10 +31,7 @@ export class SupportListComponent implements OnInit {
   }
 
   getHuman(machine) {
-    const enums = {
-      'REGENTS_PREP': 'Regents Prep'
-    };
-    return enums[machine];
+    return this.supportService.getHuman(machine);
   }
 
 }
