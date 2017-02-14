@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~materialize-css/sass/components/color"; /* This must be included to use the included variables and the color function */
-$primary-color: color("blue-grey", "darken-2");
-$secondary-color: color("deep-orange", "lighten-2");
+$primary-color: color("purple", "darken-2");
+$secondary-color: color("pink", "lighten-2");
 
 $roboto-font-path: "~materialize-css/fonts/roboto/"; /* This is needed so the materialize.scss file can load the font */
 @import "~materialize-css/sass/materialize";
@@ -41,29 +41,6 @@ $roboto-font-path: "~materialize-css/fonts/roboto/"; /* This is needed so the ma
  *
  * Made By MaterializeCSS.com
  */
-
-nav ul a,
-nav .brand-logo {
-  color: #444;
-}
-
-p {
-  line-height: 2rem;
-}
-
-.button-collapse {
-  color: #26a69a;
-}
-
-.parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
-}
-  .parallax-container .section {
-    width: 100%;
-  }
 
 @media only screen and (max-width : 992px) {
   .parallax-container .section {

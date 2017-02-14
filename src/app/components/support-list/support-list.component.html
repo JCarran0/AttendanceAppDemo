@@ -1,3 +1,21 @@
+<nav>
+  <div class="nav-wrapper">
+
+    <a materialize="sideNav" href="javascript:void(0)" data-activates="mobile-drawer" class="button-collapse"><i class="material-icons">menu</i></a>
+
+    <ul class="right hide-on-med-and-down">
+      <li><a href="javascript:void(0);">Logout</a></li>
+      <li><a href="javascript:void(0);">Other link</a></li>
+    </ul>
+
+    <ul class="side-nav" id="mobile-drawer">
+      <li><a href="javascript:void(0);">Logout</a></li>
+      <li><a href="javascript:void(0);">Other link</a></li>
+    </ul>
+  </div>
+</nav>
+
+
 <ul class="collection">
   <li class="collection-item avatar" *ngFor="let support of (supportsByLead$ | async);">
     <i class="material-icons circle grey">assignment</i>

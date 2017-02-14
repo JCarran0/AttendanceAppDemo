@@ -1,4 +1,11 @@
-<a href="javascript:void(0)" routerLink="/support-list" routerLinkActive="active"><i class="material-icons">arrow_back</i></a>
+<nav>
+  <div class="nav-wrapper">
+    <span class="left"><a href="javascript:void(0)" routerLink="/support-list" routerLinkActive="active"><i class="material-icons">arrow_back</i></a></span>
+
+    <span class="center brand-logo">{{activeSupport.name}}</span>
+  </div>
+</nav>
+
 
 <div class="row">
   <!-- Make responsive, full size on mobile, otherwise ~80% -->
