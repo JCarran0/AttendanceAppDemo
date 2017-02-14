@@ -6,7 +6,7 @@ export const StudentSupportMocks: StudentSupport[] = [
     schoolId: '13W320',
     student: {
       studentId: '80000000113W320',
-      lastFirst: 'Last385397799, First2'
+      lastFirst: 'Musk, Elron'
     },
     assignedOn: '2016-08-24',
     startsOn: '2016-10-15',
@@ -43,7 +43,7 @@ export const StudentSupportMocks: StudentSupport[] = [
     schoolId: '13W320',
     student: {
       studentId: '80000000113W320',
-      lastFirst: 'Last385397799, First2'
+      lastFirst: 'Jasper, Julie'
     },
     assignedOn: '2016-08-24',
     startsOn: '2016-10-15',

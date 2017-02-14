@@ -1,3 +1,6 @@
-<p>
-  attendance-input works!
-</p>
+<h4>Take attendance for:</h4>
+
+<div *ngFor="let studentSupport of (_activeStudents$ | async)">
+  {{studentSupport.student.lastFirst}}
+</div>
+
