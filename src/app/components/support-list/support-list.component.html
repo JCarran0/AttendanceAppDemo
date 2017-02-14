@@ -1,5 +1,3 @@
-
-
 <ul class="collection">
   <li class="collection-item avatar" *ngFor="let support of (supportsByLead$ | async);">
     <i class="material-icons circle grey">assignment</i>
@@ -8,10 +6,6 @@
       {{getHuman(support.category)}}
       <br> {{support.location}}
     </p>
-    <a href="javascript:void(0)"
-       class="secondary-content"
-       routerLink="/support-details"
-       routerLinkActive="active"><i class="material-icons">chevron_right</i></a>
+    <a href="javascript:void(0)" class="secondary-content" routerLink="/support-details" routerLinkActive="active"><i class="material-icons">chevron_right</i></a>
   </li>
 </ul>
-
