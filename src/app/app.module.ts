@@ -6,11 +6,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { SupportListComponent } from './support-list/support-list.component';
+import { SupportDetailsComponent } from './support-details/support-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SupportListComponent
+    SupportListComponent,
+    SupportDetailsComponent
   ],
   imports: [
     BrowserModule,
