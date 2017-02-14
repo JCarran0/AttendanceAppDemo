@@ -1,3 +1,4 @@
+import { AttendanceService } from './../../services/attendance.service';
 import { Router } from '@angular/router';
 import { SupportsService, Support, Schedule } from './../../services/supports.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,6 +14,7 @@ export class SupportDetailsComponent implements OnInit {
 
   constructor(
     private supportService: SupportsService,
+    private attendanceService: AttendanceService,
     private router: Router
   ) { }
 
@@ -43,6 +45,13 @@ export class SupportDetailsComponent implements OnInit {
 
   truncate(string) {
     return _.truncate(string, {length: 30});
+  }
+
+  loadAttendanceInput(support: Support) {
+    // Set active support and switch routes
+    // TODO: Pass supportId as URL parameter?
+    this.router.navigate(['./attendance-input']);
+    return;
   }
 
 }

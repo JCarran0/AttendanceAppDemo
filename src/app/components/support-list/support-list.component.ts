@@ -19,6 +19,7 @@ export class SupportListComponent implements OnInit {
 
   showSupportDetails(support: Support) {
     // Set active support and switch routes
+    // TODO: Pass supportId as URL parameter?
     this.supportService.active = support;
     this.router.navigate(['./support-details']);
     return;
