@@ -1,3 +1,4 @@
+import { SupportListComponent } from './../support-list/support-list.component';
 import { AppComponent } from './../app.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -5,7 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const appRoutes: Routes = [
-  { path: '**', component: AppComponent } // TODO: Replace with "404 Page not found"
+  { path: 'support-list', component: SupportListComponent },
+  { path: '**', component: SupportListComponent } // TODO: Replace with "404 Page not found"
 ];
 
 
