@@ -1,3 +1,17 @@
-<p>
-  support-list works!
-</p>
+
+
+<ul class="collection">
+  <li class="collection-item avatar" *ngFor="let support of (supportsByLead$ | async);">
+    <i class="material-icons circle grey">assignment</i>
+    <span class="title">{{support.name}}</span>
+    <p>
+      {{getHuman(support.category)}}
+      <br> {{support.location}}
+    </p>
+    <a href="javascript:void(0)"
+       class="secondary-content"
+       routerLink="/support-details"
+       routerLinkActive="active"><i class="material-icons">chevron_right</i></a>
+  </li>
+</ul>
+

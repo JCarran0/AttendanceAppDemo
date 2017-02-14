@@ -1,3 +1,4 @@
+import { SupportsService } from './../../services/supports.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupportListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private supportService: SupportsService
+  ) { }
 
   ngOnInit() {
+  }
+
+  get supportsByLead$() {
+    // TODO: get logged in user ID
+    const tokenOwnerId = 'MOCK_TOKEN_OWNER_ID';
+    return this.supportService.fetchSupportsByActivityLead(tokenOwnerId);
+  }
+
+  getHuman(machine) {
+    const enums = {
+      'REGENTS_PREP': 'Regents Prep'
+    };
+    return enums[machine];
   }
 
 }
