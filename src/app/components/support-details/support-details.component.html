@@ -1,17 +1,46 @@
-<nav>
-  <div class="nav-wrapper">
-    <span class="left"><a href="javascript:void(0)" routerLink="/support-list" routerLinkActive="active"><i class="material-icons">arrow_back</i></a></span>
+<div *ngIf="activeSupport">
+  <nav>
+    <div class="nav-wrapper">
+      <span class="left"><a href="javascript:void(0)" routerLink="/support-list" routerLinkActive="active"><i class="material-icons">arrow_back</i></a></span>
 
-    <span class="center brand-logo">{{activeSupport.name}}</span>
+      <span class="center support-name">{{truncate(activeSupport.name)}}</span>
+    </div>
+  </nav>
+
+  <div class="section">
+    <div class="row">
+      <!-- Make responsive, full size on mobile, otherwise ~80% -->
+      <div class="col s12 m10 offset-m1">
+        <p>{{activeSupport.description}}</p>
+        <p>
+          <b>Summary</b>
+          <br><span class="left">Cat: </span><span class="right">{{getHuman(activeSupport.category)}}</span>
+          <br><span class="left">Location: </span><span class="right">{{activeSupport.location}}</span>
+          <br><span class="left">Time: </span><span class="right">{{activeSupport.schedule.startTime}}</span>
+          <br><span class="left">Days of week: </span><span class="right">~coming soon~</span>
+          <br><span class="left">Start Date: </span><span class="right">{{getDateString(activeSupport.schedule.startsOn)}}</span>
+          <br><span class="left">End Date: </span><span class="right">{{getDateString(activeSupport.schedule.endsOn)}}</span>
+        </p>
+      </div>
+    </div>
   </div>
-</nav>
 
+  <hr>
 
-<div class="row">
-  <!-- Make responsive, full size on mobile, otherwise ~80% -->
-  <div class="col s12 m10 offset-m1">
-    <p>
-      {{activeSupport | json}}
-    </p>
+  <div class="section">
+    <div class="row">
+      <!-- Make responsive, full size on mobile, otherwise ~80% -->
+      <div class="col s12 m10 offset-m1">
+        <div>
+          <b>Students</b>
+          <br><span class="left">Active: </span><span class="right">~coming soon~</span>
+        </div>
+
+        <div class="attend-btn center">
+          <button class="btn btn-large waves-effect waves-light">Take Attendance</button>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>

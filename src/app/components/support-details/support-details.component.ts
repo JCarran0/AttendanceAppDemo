@@ -1,6 +1,8 @@
 import { Router } from '@angular/router';
-import { SupportsService } from './../../services/supports.service';
+import { SupportsService, Support, Schedule } from './../../services/supports.service';
 import { Component, OnInit } from '@angular/core';
+
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-support-details',
@@ -15,16 +17,32 @@ export class SupportDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  }
-
-  get activeSupport() {
     // If no active support reroute to support list
     // (e.g.if user navigates directly to / support - details)
     if (!this.supportService.active) {
       this.router.navigate(['./support-list']);
-      return {};
     }
+  }
+
+  get schedule() {
+    return this.activeSupport.schedule;
+  }
+
+  get activeSupport(): any {
     return this.supportService.active;
+  }
+
+  getHuman(machine) {
+    return this.supportService.getHuman(machine);
+  }
+
+  getDateString(date: string) {
+    if (!date) return '';
+    return _.reverse(date.split('-')).join('/');
+  }
+
+  truncate(string) {
+    return _.truncate(string, {length: 30});
   }
 
 }

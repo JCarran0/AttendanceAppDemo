@@ -1,0 +1,19 @@
+.support-name {
+  position: absolute;
+  color: #fff;
+  display: inline-block;
+  font-size: 1.5rem;
+  padding: 0;
+  white-space: nowrap;
+}
+
+nav .support-name.center {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.attend-btn{
+  margin-bottom: 15px;
+  margin-top: 40px;
+}
