@@ -1,0 +1,100 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~materialize-css/sass/components/color"; /* This must be included to use the included variables and the color function */
+$primary-color: color("blue-grey", "darken-2");
+$secondary-color: color("deep-orange", "lighten-2");
+
+$roboto-font-path: "~materialize-css/fonts/roboto/"; /* This is needed so the materialize.scss file can load the font */
+@import "~materialize-css/sass/materialize";
+
+
+.primary-bg{
+  background: $primary-color;
+}
+
+.accent-text {
+  color: $secondary-color;
+}
+
+.primary-text {
+  color: black;
+}
+
+.primary-text-dark {
+  color: #ffffff;
+}
+
+.secondary-text-dark {
+  color: #ffffff;
+  opacity: .70;
+}
+
+.error-text{
+  color: #DD2C00;
+}
+
+
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+// Waves effect extension for materialize
+.waves-effect {
+  &.waves-theme-color .waves-ripple {
+    background-color: $secondary-color
+  }
+}
