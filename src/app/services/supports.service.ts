@@ -55,9 +55,19 @@ export interface Support {
 @Injectable()
 export class SupportsService {
 
+  private _activeSupport: Support = null;
+
   constructor(
     private http: Http
   ) { }
+
+  get active() {
+    return this._activeSupport;
+  }
+
+  set active(support: Support) {
+    this._activeSupport = support;
+  }
 
   // TODO: Mocked API Request here for now
   fetchSupportsByActivityLead(leadId: string): Observable<Support[]> {

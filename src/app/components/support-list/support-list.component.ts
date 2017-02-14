@@ -1,5 +1,6 @@
-import { SupportsService } from './../../services/supports.service';
+import { SupportsService, Support } from './../../services/supports.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-support-list',
@@ -9,10 +10,18 @@ import { Component, OnInit } from '@angular/core';
 export class SupportListComponent implements OnInit {
 
   constructor(
-    private supportService: SupportsService
+    private supportService: SupportsService,
+    private router: Router
   ) { }
 
   ngOnInit() {
+  }
+
+  showSupportDetails(support: Support) {
+    // Set active support and switch routes
+    this.supportService.active = support;
+    this.router.navigate(['./support-details']);
+    return;
   }
 
   get supportsByLead$() {
