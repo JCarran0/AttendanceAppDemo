@@ -1,3 +1,4 @@
+import { AttendanceInputComponent } from './../components/attendance-input/attendance-input.component';
 import { SupportDetailsComponent } from './../components/support-details/support-details.component';
 import { SupportListComponent } from './../components/support-list/support-list.component';
 import { AppComponent } from './../app.component';
@@ -7,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const appRoutes: Routes = [
+  { path: 'attendance-input', component: AttendanceInputComponent},
   { path: 'support-details', component: SupportDetailsComponent },
   { path: 'support-list', component: SupportListComponent },
   { path: '**', component: SupportListComponent } // TODO: Replace with "404 Page not found"
