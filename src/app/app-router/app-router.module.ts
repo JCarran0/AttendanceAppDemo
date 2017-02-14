@@ -1,5 +1,5 @@
-import { SupportDetailsComponent } from './../support-details/support-details.component';
-import { SupportListComponent } from './../support-list/support-list.component';
+import { SupportDetailsComponent } from './../components/support-details/support-details.component';
+import { SupportListComponent } from './../components/support-list/support-list.component';
 import { AppComponent } from './../app.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
