@@ -78,6 +78,8 @@ export class SupportsService {
     return enums[machine];
   }
 
+
+  // TODO: Maybe API calls should be in separate service?
   // TODO: Mocked API Request here for now
   fetchSupportsByActivityLead(leadId: string): Observable<Support[]> {
     // const API_URL = 'API_URL';
