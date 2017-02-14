@@ -22,7 +22,7 @@ export class SupportDetailsComponent implements OnInit {
     // (e.g.if user navigates directly to / support - details)
     if (!this.supportService.active) {
       this.router.navigate(['./support-list']);
-      return;
+      return {};
     }
     return this.supportService.active;
   }
