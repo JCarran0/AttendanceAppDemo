@@ -7,11 +7,21 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterializeModule } from 'angular2-materialize';
+import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
 import { SupportListComponent } from './components/support-list/support-list.component';
 import { SupportDetailsComponent } from './components/support-details/support-details.component';
 import { AttendanceInputComponent } from './components/attendance-input/attendance-input.component';
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyALZL5S6HefzSeObyc6Mc5-iCnTKtSwSNo',
+  authDomain: 'attendance-app-demo.firebaseapp.com',
+  databaseURL: 'https://attendance-app-demo.firebaseio.com',
+  storageBucket: 'attendance-app-demo.appspot.com',
+  messagingSenderId: '54223477000'
+};
+
 
 @NgModule({
   declarations: [
@@ -25,7 +35,8 @@ import { AttendanceInputComponent } from './components/attendance-input/attendan
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    MaterializeModule
+    MaterializeModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [
     SupportsService,
