@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './../components/page-not-found/page-not-found.component';
 import { AttendanceInputComponent } from './../components/attendance-input/attendance-input.component';
 import { SupportDetailsComponent } from './../components/support-details/support-details.component';
 import { SupportListComponent } from './../components/support-list/support-list.component';
@@ -8,10 +9,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const appRoutes: Routes = [
-  { path: 'attendance-input', component: AttendanceInputComponent},
+  { path: 'attendance-input', component: AttendanceInputComponent },
   { path: 'support-details', component: SupportDetailsComponent },
   { path: 'support-list', component: SupportListComponent },
-  { path: '**', component: SupportListComponent } // TODO: Replace with "404 Page not found"
+  { path: '', redirectTo: '/support-list', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 

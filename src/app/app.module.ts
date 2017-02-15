@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { SupportListComponent } from './components/support-list/support-list.component';
 import { SupportDetailsComponent } from './components/support-details/support-details.component';
 import { AttendanceInputComponent } from './components/attendance-input/attendance-input.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyALZL5S6HefzSeObyc6Mc5-iCnTKtSwSNo',
@@ -28,7 +29,8 @@ const firebaseConfig = {
     AppComponent,
     SupportListComponent,
     SupportDetailsComponent,
-    AttendanceInputComponent
+    AttendanceInputComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
