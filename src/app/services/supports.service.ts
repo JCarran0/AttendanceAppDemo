@@ -7,6 +7,8 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import * as _ from 'lodash';
+
 
 export interface UserMini {
   userId: string;
@@ -91,5 +93,10 @@ export class SupportsService {
     //   .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 
     return Observable.from([MockSupports]);
+  }
+
+  fetchSupportById(supportId: string): Observable<Support> {
+    const Mocked = _.find(MockSupports, { _id: supportId });
+    return Observable.from([Mocked]);
   }
 }

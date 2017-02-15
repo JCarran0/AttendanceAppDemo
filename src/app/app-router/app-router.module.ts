@@ -10,7 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: 'attendance-input', component: AttendanceInputComponent },
-  { path: 'support-details', component: SupportDetailsComponent },
+  { path: 'support-details/:supportId', component: SupportDetailsComponent },
   { path: 'support-list', component: SupportListComponent },
   { path: '', redirectTo: '/support-list', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }

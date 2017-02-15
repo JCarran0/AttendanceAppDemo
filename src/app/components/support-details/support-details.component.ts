@@ -1,8 +1,9 @@
 import { AttendanceService } from './../../services/attendance.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SupportsService, Support, Schedule } from './../../services/supports.service';
 import { Component, OnInit } from '@angular/core';
 
+import 'rxjs/add/operator/switchMap';
 import * as _ from 'lodash';
 
 @Component({
@@ -12,26 +13,27 @@ import * as _ from 'lodash';
 })
 export class SupportDetailsComponent implements OnInit {
 
+  private _activeSupport;
+
   constructor(
     private supportService: SupportsService,
     private attendanceService: AttendanceService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    // If no active support reroute to support list
-    // (e.g.if user navigates directly to / support - details)
-    if (!this.supportService.active) {
-      this.router.navigate(['./support-list']);
-    }
+    this.route.params
+      .switchMap((params: Params) => this.supportService.fetchSupportById(params['supportId']))
+      .subscribe((support: Support) => this._activeSupport = support);
   }
 
   get schedule() {
-    return this.activeSupport.schedule;
+    return this._activeSupport.schedule;
   }
 
   get activeSupport(): any {
-    return this.supportService.active;
+    return this._activeSupport;
   }
 
   getHuman(machine) {
@@ -44,7 +46,7 @@ export class SupportDetailsComponent implements OnInit {
   }
 
   truncate(string) {
-    return _.truncate(string, {length: 30});
+    return _.truncate(string, { length: 30 });
   }
 
   loadAttendanceInput(support: Support) {
