@@ -13,7 +13,7 @@ import * as _ from 'lodash';
 })
 export class SupportDetailsComponent implements OnInit {
 
-  private _activeSupport;
+  private _activeSupport: Support;
 
   constructor(
     private supportService: SupportsService,
@@ -49,11 +49,8 @@ export class SupportDetailsComponent implements OnInit {
     return _.truncate(string, { length: 30 });
   }
 
-  loadAttendanceInput(support: Support) {
-    // Set active support and switch routes
-    // TODO: Pass supportId as URL parameter?
-    this.router.navigate(['./attendance-input']);
-    return;
+  onTakeAttendanceClick(support: Support) {
+    this.router.navigate(['./attendance-input', support._id]);
   }
 
 }

@@ -59,20 +59,11 @@ export interface Support {
 @Injectable()
 export class SupportsService {
 
-  private _activeSupport: Support = null;
-
   constructor(
     private http: Http
   ) { }
 
-  get active() {
-    return this._activeSupport;
-  }
-
-  set active(support: Support) {
-    this._activeSupport = support;
-  }
-
+  // TODO: not sure if this belongs here, but it gets called from multiple components
   getHuman(machine) {
     const enums = {
       'REGENTS_PREP': 'Regents Prep'

@@ -18,8 +18,6 @@ export class SupportListComponent implements OnInit {
   }
 
   onSupportSelect(support: Support) {
-    // TODO: Remove
-    this.supportService.active = support;
     this.router.navigate(['./support-details', support._id]);
   }
 

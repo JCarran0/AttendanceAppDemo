@@ -1,6 +1,6 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { StudentSupport, StudentSupportService } from './../../services/student-support.service';
-import { SupportsService } from './../../services/supports.service';
+import { SupportsService, Support } from './../../services/supports.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,23 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AttendanceInputComponent implements OnInit {
 
+  private _studentSupports: StudentSupport[];
+
   constructor(
     private supportService: SupportsService,
     private stdntSupportService: StudentSupportService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    if (!this.supportService.active) {
-      this.router.navigate(['./support-list']);
-    }
+    this.route.params
+      .switchMap((params: Params) => this.stdntSupportService.fetchStudentSupportsBySupportId(params['supportId']))
+      .subscribe((students: StudentSupport[]) => this._studentSupports = students);
   }
 
   // The students who should be in this activity
-  get _activeStudents$() {
-    // tslint:disable-next-line:curly
-    if (!this.supportService.active) return {};
-    return this.stdntSupportService.fetchStudentSupportsBySupportId(this.supportService.active._id);
+  get studentSupports() {
+    return this._studentSupports;
   }
 
 }

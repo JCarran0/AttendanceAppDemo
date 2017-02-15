@@ -1,6 +1,6 @@
 <h4>Take attendance for:</h4>
 
-<div *ngFor="let studentSupport of (_activeStudents$ | async)">
+<div *ngFor="let studentSupport of studentSupports">
   {{studentSupport.student.lastFirst}}
 </div>
 
