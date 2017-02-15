@@ -18,12 +18,14 @@
 
 <ul class="collection">
   <li class="collection-item avatar" *ngFor="let support of (supportsByLead$ | async);">
-    <i class="material-icons circle grey">assignment</i>
-    <span class="title">{{support.name}}</span>
-    <p>
-      {{getHuman(support.category)}}
-      <br> {{support.location}}
-    </p>
-    <a href="javascript:void(0)" class="secondary-content" (click)="onSupportSelect(support)"><i class="material-icons">chevron_right</i></a>
+    <div (click)="onSupportSelect(support)">
+      <i class="material-icons circle grey">assignment</i>
+      <span class="title">{{support.name}}</span>
+      <p>
+        {{getHuman(support.category)}}
+        <br> {{support.location}}
+      </p>
+      <a href="javascript:void(0)" class="secondary-content" (click)="onSupportSelect(support)"><i class="material-icons">chevron_right</i></a>
+    </div>
   </li>
 </ul>
