@@ -1,7 +1,42 @@
 <app-secondary-nav [support]="activeSupport"></app-secondary-nav>
+<div class="container">
+  <div class="center section">
+    <div class="row">
+      <div class="col s3 offset-s3">
+        {{countOfAbsent}} Students absent
+      </div>
+      <div class="col s3">
+        {{countOfPresent}} Students present
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <button class="btn">Submit Attendance</button>
+      </div>
+    </div>
+  </div>
 
-<h4>Take attendance for:</h4>
+  <form materialize (ngSubmit)="onAttendanceSubmit(contactEditForm)" #attendanceForm="ngForm">
+    <div class="row">
+      <div class="input-field col s6">
+        <label for="activity-date">Attendance Date</label>
+        <input materialize="pickadate" id="activity-date" [materializeParams]="[{selectMonths: true, selectYears: false}]" type="date"
+          class="datepicker" [(ngModel)]="logDate" name="activity-date">
+      </div>
+    </div>
 
-<div *ngFor="let studentSupport of studentSupports">
-  {{studentSupport.student.lastFirst}}
+    <div *ngFor="let item of logItems" class="row">
+      <div class="col s12">
+        <span class="left">{{item.student.lastFirst}}</span>
+        <span class="right">
+        <input type="checkbox" id="item-{{item._id}}" name="item-{{item._id}}" [(ngModel)]="item.wasAbsent"/>
+        <label for="item-{{item._id}}">{{getLabel(item.wasAbsent)}}</label>
+      </span>
+      </div>
+    </div>
+
+  </form>
+
+
+  {{submission | json}}
 </div>

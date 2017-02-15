@@ -5,6 +5,10 @@ import { Component, OnInit } from '@angular/core';
 
 import * as _ from 'lodash';
 
+interface AttendanceLogItem extends StudentSupport {
+  wasAbsent: boolean;
+}
+
 @Component({
   selector: 'app-attendance-input',
   templateUrl: './attendance-input.component.html',
@@ -12,8 +16,9 @@ import * as _ from 'lodash';
 })
 export class AttendanceInputComponent implements OnInit {
 
-  private _studentSupports: StudentSupport[];
+  private _logItems: AttendanceLogItem[];
   private _activeSupport: Support;
+
 
   constructor(
     private supportService: SupportsService,
@@ -25,7 +30,11 @@ export class AttendanceInputComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .switchMap((params: Params) => this.stdntSupportService.fetchStudentSupportsBySupportId(params['supportId']))
-      .subscribe((students: StudentSupport[]) => this._studentSupports = students);
+      .subscribe((studentSupports: StudentSupport[]) => {
+        this._logItems = studentSupports.map(studSupp => {
+          return _.assign({}, studSupp, { wasAbsent: false });
+        });
+      });
 
     // TODO: This is not the right way to do this.  Should be chain-able to above switchMap
     this.route.params
@@ -34,16 +43,30 @@ export class AttendanceInputComponent implements OnInit {
   }
 
   // The students who should be in this activity
-  get studentSupports() {
-    return this._studentSupports;
+  get logItems() {
+    return this._logItems;
   }
 
   get activeSupport() {
     return this._activeSupport;
   }
 
-  truncate(string) {
-    return _.truncate(string, { length: 30 });
+  get countOfPresent() {
+    return this.logItems.reduce((count, item) => {
+      if (!item.wasAbsent) count++;
+      return count;
+    }, 0);
+  }
+
+  get countOfAbsent() {
+    return this.logItems.reduce((count, item) => {
+      if (item.wasAbsent) count++;
+      return count;
+    }, 0);
+  }
+
+  getLabel(wasAbsent: boolean): string {
+    return wasAbsent ? 'Absent' : 'Present';
   }
 
 }
