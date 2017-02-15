@@ -1,6 +1,7 @@
+<app-secondary-nav [support]="activeSupport"></app-secondary-nav>
+
 <h4>Take attendance for:</h4>
 
 <div *ngFor="let studentSupport of studentSupports">
   {{studentSupport.student.lastFirst}}
 </div>
-

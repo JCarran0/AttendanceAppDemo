@@ -35,7 +35,7 @@ export interface Schedule {
     friday: boolean;
     saturday: boolean;
     sunday: boolean;
-  },
+  };
   startsOn: string;
   endsOn: string;
   startTime: string;
@@ -50,7 +50,7 @@ export interface Support {
   description: string;
   createdBy: UserMini;
   location: string;
-  schedule: Schedule,
+  schedule: Schedule;
   activityLead: UserMini;
   primaryOutcomeMetrics: string[];
   metaData: SupportMetaData;

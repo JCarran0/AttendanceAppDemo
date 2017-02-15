@@ -32,7 +32,7 @@ export class SupportDetailsComponent implements OnInit {
     return this._activeSupport.schedule;
   }
 
-  get activeSupport(): any {
+  get activeSupport(): Support {
     return this._activeSupport;
   }
 
@@ -43,10 +43,6 @@ export class SupportDetailsComponent implements OnInit {
   getDateString(date: string) {
     if (!date) return '';
     return _.reverse(date.split('-')).join('/');
-  }
-
-  truncate(string) {
-    return _.truncate(string, { length: 30 });
   }
 
   onTakeAttendanceClick(support: Support) {
