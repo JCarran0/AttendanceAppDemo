@@ -1,5 +1,7 @@
 # AttendanceAppDemo
 
+[View Demo Here](https://attendance-app-demo.firebaseapp.com)
+
 This is a proof of concept/prototype for a mobile-first attendance taking application I built for New Visions for Public Schools. The application would ultimately read off of New Visions' private student data API and would be accessible to authorized users only.
 
 It's also partly an excuse to play with Angular2
