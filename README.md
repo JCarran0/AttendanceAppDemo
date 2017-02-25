@@ -1,5 +1,11 @@
 # AttendanceAppDemo
 
+This is a proof of concept/prototype for a mobile-first attendance taking application I built for New Visions for Public Schools. The application would ultimately read off of New Visions' private student data API and would be accessible to authorized users only.
+
+It's also partly an excuse to play with Angular2
+
+## About
+
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.
 
 ## Development server
